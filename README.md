@@ -6,7 +6,7 @@ literally just a docker wrapper around https://github.com/0xHashRaptor/ForgeMine
 ## example compose
 ```yml
 services:
-  SRBMiner:
+  ForgeMiner:
     container_name: ForgeMiner
     image: ghcr.io/dablincx/forgeminer-docker:latest
     restart: unless-stopped
