@@ -7,19 +7,19 @@ literally just a docker wrapper around https://github.com/0xHashRaptor/ForgeMine
 ```yml
 services:
   SRBMiner:
-    container_name: SRBMiner
-    image: ghcr.io/dablincx/srbminer-docker:latest
+    container_name: ForgeMiner
+    image: ghcr.io/dablincx/forgeminer-docker:latest
     restart: unless-stopped
     tty: true
     mem_limit: 2g
     gpus: all
     environment:
-      ALGO: verushash
-      POOL_ADDRESS: stratum+tcp://na.luckpool.net:3956#xnsub
-      WALLET_USER: RRmpZ1tajCXVG9999LWUD4CPVyZvjpe3iZ
-      WORKER: Saturn
+      ALGO: pearlhash
+      POOL_ADDRESS: prl.kryptex.network:7048
+      WALLET_USER: prl1p6mjua9hzcnalvqn8rah3d6vsga3pe26mlcpx2v6ne43rpjulyg9s4s5e6d
+      WORKER: unconfiguredgithubcopy
       # PASSWORD: x
-      EXTRAS: --disable-cpu
+      # EXTRAS: 
     logging:
       driver: "json-file"
       options:
@@ -29,11 +29,18 @@ services:
 
 ## env vars
 
-| Variable        | Description              | Example                                      |
+| Variable       | Description             | Example                                      |
 |----------------|--------------------------|----------------------------------------------|
-| `ALGO`         | Mining algorithm         | `verushash`                                  |
-| `POOL_ADDRESS` | Mining pool address      | `stratum+tcp://na.luckpool.net:3956#xnsub`    |
-| `WALLET_USER`  | Wallet address or user   | `RRmpZ1tajCXVG9999LWUD4CPVyZvjpe3iZ`           |
-| `WORKER`       | Worker name              | `Saturn`                                     |
+| `ALGO`         | Mining algorithm         | `pearlhash`                                  |
+| `POOL_ADDRESS` | Mining pool address      | `prl.kryptex.network:7048`    |
+| `WALLET_USER`  | Wallet address or user   | `prl1p6mjua9hzcnalvqn8rah3d6vsga3pe26mlcpx2v6ne43rpjulyg9s4s5e6d`           |
+| `WORKER`       | Worker name              | `unconfiguredgithubcopy`                                     |
 | `PASSWORD`     | Pool password (optional) | `x`                                          |
-| `EXTRAS`       | Extra SRBMiner flags     | `-t 4`                                       |
+| `EXTRAS`       | Extra ForgeMiner flags   | see https://github.com/0xHashRaptor/ForgeMiner for more flags                                      |
+
+## license
+
+This project redistributes official ForgeMiner binaries.
+Please refer to the upstream repository for full license details:
+
+- https://github.com/0xHashRaptor/ForgeMiner
