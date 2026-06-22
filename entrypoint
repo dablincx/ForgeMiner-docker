@@ -4,3 +4,9 @@ set -x
 
 nvidia-smi
 
+./forge \
+    --algorithm "$ALGO" \
+    --pool "$POOL_ADDRESS" \
+    --wallet "$WALLET_USER.$WORKER" \
+    ${PASSWORD:+--password "$PASSWORD"} \
+    $EXTRAS 
