@@ -1,5 +1,5 @@
 # Base image
-FROM debian:stable-slim
+FROM nvidia/cuda:12.9.2-runtime-ubuntu24.04
 
 # Define the version as a build argument
 ARG VERSION
@@ -17,7 +17,7 @@ RUN apt-get -y update \
     && curl -L https://github.com/0xHashRaptor/ForgeMiner/releases/download/v${VERSION}/ForgeMiner-${VERSION}-linux.tar.gz -o /opt/ForgeMiner.tar.gz \
     && mkdir -p /opt/ForgeMiner \
     && tar -xf /opt/ForgeMiner.tar.gz -C /opt/ForgeMiner \
-    && rm -rf /opt/SRBMiner-Multi.tar.gz \
+    && rm -rf /opt/ForgeMiner.tar.gz \
     && apt-get -y purge xz-utils wget \
     && apt-get -y autoremove --purge \
     && apt-get -y clean \
